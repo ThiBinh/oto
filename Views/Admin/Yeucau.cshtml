@@ -1,0 +1,78 @@
+﻿@using WebBanOto.Models
+@using PagedList.Mvc;
+
+@model PagedList.PagedList<TUVAN>
+
+
+@{
+    ViewBag.Title = "Yeucau";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>YÊU CẦU TƯ VẤN</h2>
+@using (Html.BeginForm("Yeucau", "Admin", FormMethod.Get)) // -- phần thay đổi
+{
+<p>
+
+    Phương thức:   @Html.DropDownList("MaPT") <input type="submit" value="TÌM KIẾM" />
+
+</p>
+}
+
+<table class="table" border="1">
+<tr>
+<th style="width:200px">  Họ tên </th>
+<th style="width:100px">  Điện thoại  </th>
+<th style="width:200px">  Email    </th>
+<th style="width:100px">  Phương thức  </th>
+
+<th style="width:200px">  </th>
+</tr>
+
+@foreach (var item in Model)
+{
+<tr>
+<td>
+  @Html.DisplayFor(modelItem => item.HoTen)
+</td>
+<td>
+  @Html.DisplayFor(modelItem => item.Dienthoai)
+</td>
+<td>
+  @Html.DisplayFor(modelItem => item.Email)
+</td>
+<td>
+  @Html.DisplayFor(modelItem => item.PHUONGTHUC.TenPT)
+</td>
+<td>
+
+  @Html.ActionLink("Xóa", "Xoayc", new { id = item.MaTV })
+</td>
+</tr>
+}
+
+</table>
+<div class="f">
+@* Tao liên kết các trang  *@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+
+    </div>
+    <div class="MenuTrang">
+
+        @Html.PagedListPager(Model, page => Url.Action("Yeucau", new { page = page }))
+    </div>
+
+
+    <style type="text/css">
+
+        .f {
+            position: relative;
+            clear: both;
+        }
+
+        .MenuTrang li {
+            display: inline;
+            position: relative;
+            top: 700px;
+        }
+    </style>

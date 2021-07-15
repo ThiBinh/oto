@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+   
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <video id="myvideo" width="100%" height="730" controls>
+        <source id="mp4" src="~/Content/img/Welcome to Car P.mp4 " type="video/mp4">
+
+    </video>
+    
+    <script type="text/javascript">
+        var video = document.getElementById("myvideo");
+
+        video.play();
+
+
+
+
+
+    </script>
+</body>
+</html>

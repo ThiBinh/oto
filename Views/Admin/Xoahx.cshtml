@@ -1,0 +1,52 @@
+﻿@model WebBanOto.Models.HANGXE
+
+@{
+    ViewBag.Title = "Xoahx";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN CẦN XÓA</h2>
+
+<h3>
+    Bạn quyết định xóa hãng xe này?
+</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên hãng xe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHX)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diachi)
+        </dd>
+
+        <dt>
+            Điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DienThoai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="XÓA" class="btn btn-default" /> |
+        @Html.ActionLink("QUAY LẠI", "Hangxe")
+    </div>
+    }
+</div>

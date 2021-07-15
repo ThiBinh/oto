@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebBanOto.Models.LIENHE>
+
+@{
+    ViewBag.Title = "Lienhe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THÔNG TIN LIÊN HỆ</h2>
+<p>
+    @Html.ActionLink("THÊM MỚI", "Themlienhe")
+</p>
+
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">  Địa chỉ </th>
+        <th style="width:200px">  Email  </th>
+        <th style="width:100px">  Điện thoại </th>
+        <th style="width:200px">  Facebook </th>
+        <th style="width:200px">  Instagram </th>
+
+        <th style="width:200px">  </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diachi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.INS)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Sualh", new { id = item.MaLH }) |
+                @Html.ActionLink("Xóa", "Xoalh", new { id = item.MaLH })
+
+            </td>
+        </tr>
+    }
+
+</table>

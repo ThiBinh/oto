@@ -1,0 +1,91 @@
+﻿@model WebBanOto.Models.XE
+
+@{
+    ViewBag.Title = "Chitietxe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>THÔNG TIN CHI TIẾT XE</h3>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên xe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tenxe)
+        </dd>
+
+        <dt>
+            Giá bán
+        </dt>
+
+        <dd>
+            $ @String.Format("{0:0,0}", Model.Giaban) 
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd style="width:600px; text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Ảnh xe
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Hinhsanpham/"+  Model.Anhxe)" width="150" />
+        </dd>
+
+        <dt>
+            Năm sản xuất
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Namsanxuat)
+        </dd>
+
+        <dt>
+            Số lượng tồn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            Ưu đãi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uudai)
+        </dd>
+
+        <dt>
+            Tên dòng xe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DONGXE.TenDX)
+        </dd>
+
+        <dt>
+           Tên hãng xe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HANGXE.TenHX)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("CHỈNH SỬA", "Sua", new { id = Model.Maxe }) |
+    @Html.ActionLink("QUAY LẠI", "Xe")
+</p>

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Discount";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="Text-align:Center; color:red"> DISCOUNT </h3>
+<div class="row">
+    @foreach (var xe in Model )
+    {
+        <div class="row" style="width:30.3%;float:left">
+            
+                <img alt="@xe.Tenxe" src="~/Hinhsanpham/@xe.Anhxe" width="230" height="230" />
+
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @xe.Uudai
+                    </h4>
+                    <p></p>
+                </div>
+          
+           
+        </div>
+    }
+
+
+</div>
+

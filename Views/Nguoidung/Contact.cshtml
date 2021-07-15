@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="Text-align:Center; color:red"> CONTACT CAR PASSION </h3>
+<h4>CUSTOMER CARE CENTER</h4>
+<h4>Please contact us through the following methods </h4>
+<div class="row">
+    @foreach (var f in Model)
+    {
+        <div class="row1" style="width : 20%; float:left">
+            <h4 style="text-align:center"> Facebook</h4>
+
+            <a href="https://www.facebook.com/Car-Passion-BTPP-110216361317951">@f.FB</a>
+        </div>
+        <div class="row1" style="width : 20%; float:left">
+            <h4 style="text-align:center"> Instagram</h4>
+
+            <a href="https://www.instagram.com/car.passion_official/?fbclid=IwAR2R6goCDjKM8VuofylHRk_dGO6heVeJpuV0zM1XALXxvzWx7Xt-Fo7Lo_o">@f.INS</a>
+        </div>
+        <div class="row1" style="width : 20%; float:left">
+            <h4 style="text-align:center"> Address</h4>
+
+            <h4 style="text-align:center"> @f.Diachi</h4>
+        </div>
+        <div class="row1" style="width : 20%; float:left">
+            <h4 style="text-align:center"> Email</h4>
+
+            <h4 style="text-align:center"> @f.Email</h4>
+        </div>
+        <div class="row1" style="width : 20%; float:left">
+            <h4 style="text-align:center"> Number phone</h4>
+
+            <h4 style="text-align:center"> @f.SDT</h4>
+        </div>
+    }
+    <hr />
+    <div class="col">
+         <h4 style="width:50%;float:left;color:white">Hours of operation of the customer care center (CCC):</h4>
+        <h4 style="margin-left:10px;width:50%;float:left;color:white">* Star Assist 24h: 24/7</h4>
+        <h4 style="margin-left:10px;width:50%;float:left;color:white">* Car sales & test drive: Monday through Saturday – 8am-10pm</h4> 
+        @*<img style="width:400px;height:400px;float:right" src="~/Content/img/ad3.jpg" />*@
+    </div>
+
+</div>
+<br />
+<h4 style="position: relative;clear:both">If you would like us to call you back, please fill out the request form below. </h4>
+<div class="f">
+    <a style="color:white" href="@Url.Action("Re","Nguoidung")">CALL ME BACK</a>
+</div>
+<style>
+    .col {
+        background: url(../../Content/img/ad3.jpg) no-repeat right;
+        background-size: 50%;
+        background-color: black;
+        overflow: hidden;
+        padding: 100px 0 ;
+    }
+    .f {
+        border: 1px solid white;
+        padding: 20px 30px;
+        background-color: salmon;
+        width:120px
+       
+       
+    }
+    
+    .f a:hover{
+        font-weight: bold;
+    }
+    
+    
+</style>
+
+
+
+

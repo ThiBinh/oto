@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Car Passion</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Car Passion", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Xe","Admin")">Quản lý xe</a></li>
+                    <li><a href="@Url.Action("Hangxe","Admin")">Quản lý hãng xe</a></li>
+
+                    <li><a href="@Url.Action("Dongxe","Admin")">Quản lý dòng xe</a></li>
+                    <li><a href="@Url.Action("Yeucau","Admin")">Quản lý yêu cầu tư vấn</a></li>
+                    <li><a href="@Url.Action("Dangki","Admin")">Quản lý đăng kí lái thử</a></li>
+                    <li><a href="@Url.Action("Gopy","Admin")">Quản lý góp ý</a></li>
+                    <li><a href="@Url.Action("Lienhe","Admin")">Quản lý trang liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>CarPassion &copy; 21</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

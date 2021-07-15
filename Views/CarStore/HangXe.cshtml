@@ -1,0 +1,28 @@
+﻿<style type="text/css">
+    .list-group a {
+        display: block;
+        background-repeat: no-repeat;
+        height: 29px;
+        padding-left: 50px;
+        padding-top: 7px;
+        text-decoration: none;
+        
+        color:Highlight;
+    }
+
+        .list-group a:hover {
+            font-weight: bold;
+        }
+</style>
+@model IEnumerable<WebBanOto.Models.HANGXE>
+<p class="lead"> CAR BRANDS </p>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SPTheoHX", "CarStore", new { id = item.MaHX})" 
+           class="list-group-item">
+            @item.TenHX
+        </a>
+    }
+</div>
+

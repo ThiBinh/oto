@@ -1,0 +1,60 @@
+﻿@model WebBanOto.ViewModels.PTViewModels
+@{
+    ViewBag.Title = "Re";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="Text-align:Center; color:red">SEND US A CONTACT REQUEST</h3>
+<h4>Please ensure that your information is accurate.</h4>
+<table align="center">
+
+    @using (Html.BeginForm())
+    {
+    
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td> Full name* </td>
+            <td>
+                @Html.TextBoxFor(m => m.Hoten, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Hoten)
+            </td>
+        </tr>
+
+        <tr style="height:40px">
+            <td> Phone number* </td>
+            <td>
+                @Html.TextBoxFor(m => m.Dienthoai, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Dienthoai)
+            </td>
+        </tr>
+
+
+        <tr style="height:40px">
+            <td> Email </td>
+            <td>
+                <input type="email" name="Email" />
+
+            </td>
+        </tr>
+
+
+
+        <tr style="height:40px">
+            <td> I agree to receive information via* </td>
+            <td>
+                @Html.DropDownListFor(m => m.PHUONGTHUC,
+            new SelectList(Model.Phuongthucs, "MaPT", "TenPT"), "", new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(m => m.PHUONGTHUC)
+
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <button type="submit" value="Save" class="btn btn-primary">Send</button>
+            </td>
+        </tr>
+    }
+</table>
+

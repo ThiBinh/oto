@@ -1,0 +1,111 @@
+﻿
+@using WebBanOto.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<XE>
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ THÔNG TIN XE</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "Themxemoi")
+</p>
+@using (Html.BeginForm("Xe", "Admin", FormMethod.Get)) // -- phần thay đổi
+{
+    <p>
+
+        Hãng xe:   @Html.DropDownList("MaHX") Dòng xe:   @Html.DropDownList("MaDX") <input type="submit" value="TÌM KIẾM" />
+
+    </p>
+}
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">  Tên xe </th>
+        <th style="width:100px">  Giá bán  </th>
+        <th style="width:300px">  Mô tả    </th>
+        <th style="width:120px">  Ảnh xe  </th>
+        <th style="width:150px">  Năm sản xuất </th>
+        <th style="width:120px">  Số lượng tồn </th>
+        <th style="width:120px">  Ưu đãi </th>
+        <th style="width:120px">  Tên dòng xe   </th>
+        <th style="width:100px">  Tên hãng xe   </th>
+        <th style="width:200px">  </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenxe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Truncate(item.Mota, 100)
+                @*@  @Html.DisplayFor(modelItem => item.Mota) *@
+            </td>
+            <td>
+                <img src="~/Hinhsanpham/@item.Anhxe" width="120" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Namsanxuat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uudai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DONGXE.TenDX)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HANGXE.TenHX)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Sua", new { id = item.Maxe }) |
+                @Html.ActionLink("Chi Tiết", "Chitietxe", new { id = item.Maxe }) |
+                @Html.ActionLink("Xóa", "Xoaxe", new { id = item.Maxe })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="f">
+    @* Tao liên kết các trang  *@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+
+</div>
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("Xe", new { page = page }))
+</div>
+
+
+<style type="text/css">
+
+    .f {
+        position: relative;
+        clear: both;
+    }
+
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+
+

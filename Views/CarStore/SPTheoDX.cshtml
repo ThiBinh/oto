@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "SPTheoDX";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="Text-align:Center; color:red"> TYPE OF CARS </h3>
+<div class="row">
+    @foreach (var xe in Model)
+    {
+        <div class="row" style="width:30.3%; float: left">
+            <a href="@Url.Action("Details","CarStore",new {id= xe.Maxe })">
+                <img alt="@xe.Tenxe" src="~/Hinhsanpham/@xe.Anhxe" width="230" height="230" />
+
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @xe.Tenxe
+                    </h4>
+                    <p></p>
+                </div>
+            </a>
+            <p style="text-align:center">
+                <strong>About $ </strong> @xe.Giaban
+            </p>
+        </div>
+    }
+
+
+</div>
+
+

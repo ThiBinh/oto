@@ -1,0 +1,101 @@
+﻿@model WebBanOto.Models.XE
+
+@{
+    ViewBag.Title = "Xoaxe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN XE CẦN XÓA</h2>
+
+<h3>
+    Bạn quyết định xóa xe này?
+</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên xe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tenxe)
+        </dd>
+
+        <dt>
+            Giá bán
+        </dt>
+
+        <dd>
+            $ @String.Format("{0:0,0}", Model.Giaban)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd style="width:600px; text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Ảnh xe
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Hinhsanpham/"+  Model.Anhxe)" width="150" />
+        </dd>
+
+        <dt>
+            Năm sản xuất
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Namsanxuat)
+        </dd>
+
+        <dt>
+            Số lượng tồn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            Ưu đãi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uudai)
+        </dd>
+
+        <dt>
+            Tên dòng xe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DONGXE.TenDX)
+        </dd>
+
+        <dt>
+            Tên hãng xe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HANGXE.TenHX)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="XÓA" class="btn btn-default" /> |
+            @Html.ActionLink("QUAY LẠI", "Xe")
+        </div>
+    }
+</div>

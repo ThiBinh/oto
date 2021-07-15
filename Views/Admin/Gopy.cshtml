@@ -1,0 +1,71 @@
+﻿@using WebBanOto.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<GOPY>
+
+@{
+    ViewBag.Title = "Gopy";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>GÓP Ý</h2>
+
+
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">  Họ tên </th>
+        <th style="width:100px">  Điện thoại  </th>
+        <th style="width:200px">  Email    </th>
+        <th style="width:200px">  Tiêu đề  </th>
+        <th style="width:300px">  Nội dung  </th>
+
+        <th style="width:200px">  </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dienthoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tieude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Xoagy", new { id = item.MaGY })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="f">
+    @* Tao liên kết các trang  *@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+
+</div>
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("Gopy", new { page = page }))
+</div>
+
+
+<style type="text/css">
+
+    .f {
+        position: relative;
+        clear: both;
+    }
+
+    .MenuTrang li {
+        display: inline;
+       
+    }
+</style>

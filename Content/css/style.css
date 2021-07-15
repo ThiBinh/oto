@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma;
+}
+
+
+
+.left {
+    width: 20%;
+    float: left;
+}
+
+.right {
+    width: 80%;
+    float: right;
+}
+
+.content {
+    margin-top: 10px;
+}
+
+ul {
+    float: right;
+    list-style-type: none;
+    margin-top: 40px;
+    margin-right: 10px;
+    left : 50%;
+    top: 0;
+    
+    position: absolute;
+}
+    ul > li {
+        display: inline-block;
+    }
+
+        ul > li a {
+            text-decoration: none;
+            color: white;
+            padding: 5px 20px;
+        }
+
+            ul > li a:hover {
+                color: red;
+            }
+
+        ul > li.active a {
+            color: red;
+        }
+
+
+
+
+
+.body {
+    background-size: cover;
+    background-position: center;
+}
+
+#slideshow {
+    overflow: hidden;
+    height: 730px;
+    width: 1520px;
+    margin: 0 auto;
+}
+
+.slide-wrapper {
+    width: 6080px;
+    -webkit-animation: slide 14s ease infinite;
+}
+
+.slide img{
+    float: left;
+    height: 730px;
+    width: 1520px;
+}
+
+
+@-webkit-keyframes slide {
+    20% {
+        margin-left: 0;
+    }
+
+    40% {
+        margin-left: -1520px;
+    }
+
+    50% {
+        margin-left: -1520px;
+    }
+
+    60% {
+        margin-left: -3040px;
+    }
+
+    70% {
+        margin-left: -3040px;
+    }
+    80%{
+        margin-left: -4560px;
+    }
+    100%{
+        margin-left: -6080px;
+    }
+
+}
+
+
+.header {
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+   
+    background-repeat: repeat;
+    height: 730px;
+    width: 1520px;
+}
+
+.logo {
+    float: left;
+    margin-top: 20px;
+    top: 0;
+    position:absolute;
+}
+
+    .main {
+        max-width: 1200px;
+        margin: auto;
+        position: absolute;
+       
+    }
+
+    .title {
+        font-size: 30px;
+        color: white;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .button {
+        color: white;
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .btn {
+        border: 1px solid white;
+        padding: 20px 30px;
+        color: white;
+        text-decoration: none;
+    }
+
+        .btn:hover {
+            color: red;
+            border-color: red;
+        }
+
+    .column {
+        width: 28.3%;
+        padding: 25px;
+        float: left;
+    }
+
+
+
+    .footer {
+        padding: 15px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        position: relative;
+        clear: both;
+        width: 100%;
+    }

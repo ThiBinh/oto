@@ -1,0 +1,68 @@
+﻿@using WebBanOto.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<HANGXE>
+
+
+@{
+    ViewBag.Title = "Hangxe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÍ THÔNG TIN HÃNG XE</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "Themhangxe")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th style="width:200px">  Tên hãng xe </th>
+        <th style="width:300px">  Địa chỉ  </th>
+        <th style="width:100px">  Điện thoại    </th>
+
+        <th style="width:200px">  </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenHX)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diachi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DienThoai)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaHx", new { id = item.MaHX }) |
+               
+                @Html.ActionLink("Xóa", "Xoahx", new { id = item.MaHX })
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="f">
+    @* Tao liên kết các trang  *@
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+
+</div>
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("Hangxe", new { page = page }))
+</div>
+
+
+<style type="text/css">
+
+    .f {
+        position: relative;
+        clear: both;
+    }
+
+    .MenuTrang li {
+        display: inline;
+       
+    }
+</style>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBANOTO" Class="dbQLBanOtoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-BJ5ONPO\SQLEXPRESS;Initial Catalog=QLBANOTO;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLBANOTOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Admin" Member="Admins">
+    <Type Name="Admin">
+      <Column Name="UserAdmin" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PassAdmin" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DONGXE" Member="DONGXEs">
+    <Type Name="DONGXE">
+      <Column Name="MaDX" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDX" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="DONGXE_XE" Member="XEs" ThisKey="MaDX" OtherKey="MaDX" Type="XE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GIO" Member="GIOs">
+    <Type Name="GIO">
+      <Column Name="MaG" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Gio" Member="Gio1" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="GIO_YEUCAU" Member="YEUCAUs" ThisKey="MaG" OtherKey="MaG" Type="YEUCAU" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GOPY" Member="GOPies">
+    <Type Name="GOPY">
+      <Column Name="MaGY" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Dienthoai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Tieude" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HANGXE" Member="HANGXEs">
+    <Type Name="HANGXE">
+      <Column Name="MaHX" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenHX" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="HANGXE_XE" Member="XEs" ThisKey="MaHX" OtherKey="MaHX" Type="XE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LIENHE" Member="LIENHEs">
+    <Type Name="LIENHE">
+      <Column Name="MaLH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FB" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="INS" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHUONGTHUC" Member="PHUONGTHUCs">
+    <Type Name="PHUONGTHUC">
+      <Column Name="MaPT" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenPT" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PHUONGTHUC_TUVAN" Member="TUVANs" ThisKey="MaPT" OtherKey="MaPT" Type="TUVAN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TUVAN" Member="TUVANs">
+    <Type Name="TUVAN">
+      <Column Name="MaTV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Dienthoai" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MaPT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PHUONGTHUC_TUVAN" Member="PHUONGTHUC" ThisKey="MaPT" OtherKey="MaPT" Type="PHUONGTHUC" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.XE" Member="XEs">
+    <Type Name="XE">
+      <Column Name="Maxe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tenxe" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Giaban" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Mota" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Anhxe" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Namsanxuat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Soluongton" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Uudai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MaDX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaHX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="XE_YEUCAU" Member="YEUCAUs" ThisKey="Maxe" OtherKey="Maxe" Type="YEUCAU" />
+      <Association Name="DONGXE_XE" Member="DONGXE" ThisKey="MaDX" OtherKey="MaDX" Type="DONGXE" IsForeignKey="true" />
+      <Association Name="HANGXE_XE" Member="HANGXE" ThisKey="MaHX" OtherKey="MaHX" Type="HANGXE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.YEUCAU" Member="YEUCAUs">
+    <Type Name="YEUCAU">
+      <Column Name="MaYC" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Dienthoai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Ngay" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="MaG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Maxe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="GIO_YEUCAU" Member="GIO" ThisKey="MaG" OtherKey="MaG" Type="GIO" IsForeignKey="true" />
+      <Association Name="XE_YEUCAU" Member="XE" ThisKey="Maxe" OtherKey="Maxe" Type="XE" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

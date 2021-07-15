@@ -1,0 +1,50 @@
+﻿
+
+
+<style type="text/css">
+    #Dangki a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Dangki a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h3 style="Text-align:Center; color:red"> DETAILS</h3>
+
+
+    <div class="row">
+        <div style="width:40%; float:left; border-left: dotted 1px; border-color:azure">
+            <img src="~/Hinhsanpham/@Model.Anhxe" width="1000" />
+        </div>
+        <div style="width:60%; float:left; padding:10px">
+            <h3 style="font-weight:bold; color:red"> @Model.Tenxe </h3>
+            <p style="text-align:justify"><Span style="font-weight:bold"> Describe </Span>@Model.Mota </p>
+    
+            <p style="font-weight:bold"> About $ <span style="color:red; font-size:16pt "> @String.Format("{0:0,0}", Model.Giaban) </span></p>
+        </div>
+        <div>
+            <div id="Dangki">
+                <a href="@Url.Action("Test", "NguoiDung", new {id = @Model.Maxe })" class="list-group-item">
+                    TEST DRIVE
+                </a>
+            </div>
+        </div>
+    </div>
+
+

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Car Passion</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style.css">
+
+
+
+</head>
+<body>
+    <div class="header">
+
+        <div id="slideshow" >
+            <div class="slide-wrapper" >
+                <div class="slide"><img src="~/Content/img/00-Divo_BUGATTI.jpg"></div>
+                <div class="slide"><img src="~/Content/img/3047149.png"></div>
+                <div class="slide"><img src="~/Content/img/nen2.jpg"></div>
+                <div class="slide"><img src="~/Content/img/nen3.jpg"></div>
+            </div>
+        </div>
+        
+
+        
+           
+                <div class="logo">
+                    <a href="@Url.Action("Index","CarStore")">
+                        <img src="~/Content/img/Snip20210612_1.png" alt="" width="250" height="100">
+                        </a>
+                </div>                 
+                <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="@Url.Action("About","CarStore")">About</a></li>
+                    <li><a href="@Url.Action("Discount","CarStore")">Discount</a></li>
+
+                    <li><a href="@Url.Action("Re","Nguoidung")">Call me back</a></li>
+                    <li><a href="@Url.Action("Contact","Nguoidung")">Contact</a></li>
+                    <li><a href="@Url.Action("Feedback","Nguoidung")">Feedback</a></li>
+                </ul>
+          
+            <div class="title">
+                <h1>CAR PASSION</h1>
+            </div>
+            <div class="button">
+                    <a href="@Url.Action("Video","CarStore")" class="btn">WATCH VIDEO</a>
+                    <a href="@Url.Action("Product","CarStore")" class="btn">PRODUCTS</a>
+            </div>
+
+    </div>
+
+    <div class="content">
+        <div class="left">
+            <div class="col-md-3">
+
+                @Html.Action("DongXe", "CarStore")
+
+                @Html.Action("HangXe", "CarStore")
+
+
+            </div>
+        </div>
+        <div class="right">
+            <div class="col-md-9">
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+
+    </div>
+   <br />
+
+    <div class="footer">
+        <p>CarPassion &copy; 21</p>
+
+       
+    </div>
+
+
+</body>
+
+</html>
+
+
